@@ -1,0 +1,53 @@
+{% load static %}
+
+<footer class="main_footer">
+    <div class="main_footer_wrapper">
+        <div class="container">
+
+            <div class="gt3_row_wrapper gt3_margin-top35">
+                <div class="gt3_row_col1">
+                    <div class="gt3_block_wrapper">
+                        <a href="http://www.rdcep.org/" target="_blank"><img
+                                src="{% static 'us_energy_viz/img/rdcep.png' %}" class="img2preload"
+                                alt="The Center for Robust Decision-making on Climate and Energy Policy (RDCEP)"
+                                title="The Center for Robust Decision-making on Climate and Energy Policy (RDCEP)"
+                                width="40%"></a>
+
+                        <img src="{% static 'us_energy_viz/img/nsf_logo.png' %}"
+                            class="freezeframe-responsive gt3_text_image"
+                            style="float:right;width: 80px;height: 80px;display: block;border-radius: 100%;left: 0;top: 2px;margin-right:18%;"
+                            alt="">
+                    </div>
+                </div>
+
+                <div class="gt3_row_col2">
+                    <div class="gt3_block_wrapper">
+                        <a href="https://rcc.uchicago.edu/" target="_blank">
+                            <img src="{% static 'us_energy_viz/img/rcc_powered_maroon.png' %}" class="img2preload"
+                                alt="Research Computing Center (RCC) at The University of Chicago"
+                                title="Research Computing Center (RCC) at The University of Chicago" width="100%">
+                        </a>                        
+                    </div>
+
+                </div>      
+
+            </div>
+
+            <div>
+                <ul class="funding_resources">
+                    <li>Funding for this project was provided by the National Science
+                        Foundation through a grant under
+                        the Decision-making Under Uncertainty (DMUU) program, grant
+                        <b>#SES-0951756</b>. Software copyright &copy; {% now 'Y' %} Nathan Matteson and the <a
+                            href="https://rcc.uchicago.edu/" target="_blank">Research Computing Center (RCC) at
+                            the University of Chicago</a>.</li>
+
+                </ul>
+            </div>
+
+            <div class="clear"></div>
+
+        </div>
+    </div>
+    <!-- .main_footer_wrapper -->
+</footer>

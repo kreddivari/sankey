@@ -1,0 +1,250 @@
+{% extends 'us_energy_viz/base.html' %}
+
+{% load static %}
+
+{% block title %}
+License
+{% endblock %}
+
+{% block home_content %}
+<div class="body_wrapper">
+    <div class="site_wrapper fadeOnLoad">
+        <!-- <div id="particles-js"></div> -->
+        <div class="main_wrapper">
+            <div class="content_wrapper">
+                <div class="container">
+                    <div class="content_block row no-sidebar">
+                        <div class="fl-container">
+                            <div class="row">
+                                <div class="posts-block">
+                                    <div class="contentarea">
+                                        <div class="page_title">
+                                            <h1 id="stackedtext"></h1>
+                                        </div>
+                                        <!-- .page_title -->
+
+                                        <article class="contentarea">
+                                           <div  id="chartsdiv" style="height: 600px;width: 120%">
+
+                                           </div>
+                                        </article>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clear">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block customscript %}
+<script>
+var type = window.location.hash.substr(1);
+title= type;
+if(title.indexOf("Elec") != -1){
+    title=title+"tricity Waste";
+}
+title= title.replace(/([A-Z])/g, ' $1').trim();
+$("#stackedtext").text(title);
+var dataset_url = "http://sankey-dev.staging.rcc.uchicago.edu:8090/api/data/"+type;
+//var dataset_url = "http://localhost:8080/api/data/"+type;
+am4core.ready(function() {
+
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+var chart = am4core.create("chartsdiv", am4charts.XYChart);
+
+var json=(function () {
+    var json = null;
+    $.ajax({
+        'async': false,
+        'global': false,
+        'url': dataset_url,
+        'dataType': "json",
+        'success': function (data) {
+            json = data;
+        }
+    });
+    return json;
+})();
+
+chart.data=json;
+chart.dateFormatter.inputDateFormat = "yyyy";
+var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+dateAxis.renderer.minGridDistance = 60;
+dateAxis.startLocation = 0.5;
+dateAxis.endLocation = 0.5;
+dateAxis.baseInterval = {
+  timeUnit: "year",
+  count: 1
+}
+
+var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+valueAxis.tooltip.disabled = true;
+
+var series = chart.series.push(new am4charts.LineSeries());
+if(type.indexOf("Fuel") != -1){
+
+series.name = "Solar";
+series.dataFields.dateX = "year";
+series.dataFields.valueY = "solar";
+series.fill = am4core.color("#fed530");
+series.sequencedInterpolation = true;
+series.fillOpacity = 1;
+series.defaultState.transitionDuration = 1000;
+series.stacked = true;
+
+var series2 = chart.series.push(new am4charts.LineSeries());
+series2.name = "Nuclear";
+series2.dataFields.dateX = "year";
+series2.dataFields.valueY = "nuclearFission";
+series2.fill = am4core.color("#ca0813");
+series2.sequencedInterpolation = true;
+series2.fillOpacity = 1;
+series2.defaultState.transitionDuration = 1000;
+series2.stacked = true;
+
+
+var series3 = chart.series.push(new am4charts.LineSeries());
+series3.name = "Hydro";
+series3.dataFields.dateX = "year";
+series3.dataFields.valueY = "water";
+series3.fill = am4core.color("#0b24fb");
+series3.sequencedInterpolation = true;
+series3.fillOpacity = 1;
+series3.defaultState.transitionDuration = 1000;
+series3.stacked = true;
+
+
+var series4 = chart.series.push(new am4charts.LineSeries());
+series4.name = "Wind";
+series4.dataFields.dateX = "year";
+series4.dataFields.valueY = "wind";
+series4.fill = am4core.color("#901d8f");
+series4.sequencedInterpolation = true;
+series4.fillOpacity = 1;
+series4.defaultState.transitionDuration = 1000;
+series4.stacked = true;
+
+var series5 = chart.series.push(new am4charts.LineSeries());
+series5.dataFields.dateX = "year";
+series5.name = "Geothermal";
+series5.dataFields.valueY = "geothermal";
+series5.fill = am4core.color("#905a1c");
+series5.sequencedInterpolation = true;
+series5.fillOpacity = 1;
+series5.defaultState.transitionDuration = 1000;
+series5.stacked = true;
+
+var series6 = chart.series.push(new am4charts.LineSeries());
+series6.name = "Natural Gas";
+series6.dataFields.dateX = "year";
+series6.dataFields.valueY = "naturalGas";
+series6.fill = am4core.color("#4cabf2");
+series6.sequencedInterpolation = true;
+series6.fillOpacity = 1;
+series6.defaultState.transitionDuration = 1000;
+series6.stacked = true;
+
+
+var series7 = chart.series.push(new am4charts.LineSeries());
+series7.name = "Coal";
+series7.dataFields.dateX = "year";
+series7.dataFields.valueY = "coal";
+series7.fill = am4core.color("#000000");
+series7.sequencedInterpolation = true;
+series7.fillOpacity = 1;
+series7.defaultState.transitionDuration = 1000;
+series7.stacked = true;
+
+var series8 = chart.series.push(new am4charts.LineSeries());
+series8.name = "Biomass";
+series8.dataFields.dateX = "year";
+series8.dataFields.valueY = "biomass";
+series8.fill = am4core.color("#46be48");
+series8.sequencedInterpolation = true;
+series8.fillOpacity = 1;
+series8.defaultState.transitionDuration = 1000;
+series8.stacked = true;
+
+
+var series9 = chart.series.push(new am4charts.LineSeries());
+series9.name = "Petroleum";
+series9.dataFields.dateX = "year";
+series9.dataFields.valueY = "petroleum";
+series9.fill = am4core.color("#095f0b");
+series9.sequencedInterpolation = true;
+series9.fillOpacity = 1;
+series9.defaultState.transitionDuration = 1000;
+series9.stacked = true;
+}else{
+
+
+series.name = "Residential/Commercial";
+series.dataFields.dateX = "year";
+series.dataFields.valueY = "res";
+series.fill = am4core.color("rgb(150,200,128)");
+series.sequencedInterpolation = true;
+series.fillOpacity = 1;
+series.tooltip.getStrokeFromObject = false;
+series.tooltip.background.strokeWidth = 0;
+series.defaultState.transitionDuration = 1000;
+series.stacked = true;
+
+var series2 = chart.series.push(new am4charts.LineSeries());
+series2.name = "Agriculture";
+series2.dataFields.dateX = "year";
+series2.dataFields.valueY = "agri";
+series2.fill = am4core.color("rgb(255,255,0)");
+series2.sequencedInterpolation = true;
+series2.fillOpacity = 1;
+series2.defaultState.transitionDuration = 1000;
+series2.stacked = true;
+
+
+var series3 = chart.series.push(new am4charts.LineSeries());
+series3.name = "Industrial";
+series3.dataFields.dateX = "year";
+series3.dataFields.valueY = "inds";
+series3.fill = am4core.color("rgb(255,128,0)");
+series3.sequencedInterpolation = true;
+series3.fillOpacity = 1;
+series3.defaultState.transitionDuration = 1000;
+series3.stacked = true;
+
+
+var series4 = chart.series.push(new am4charts.LineSeries());
+series4.name = "Transportation";
+series4.dataFields.dateX = "year";
+series4.dataFields.valueY = "trans";
+series4.fill = am4core.color("rgb(255,0,0)");
+series4.sequencedInterpolation = true;
+series4.fillOpacity = 1;
+series4.defaultState.transitionDuration = 1000;
+series4.stacked = true;
+}
+
+
+chart.cursor = new am4charts.XYCursor();
+chart.cursor.xAxis = dateAxis;
+chart.scrollbarX = new am4core.Scrollbar();
+
+// Add a legend
+chart.legend = new am4charts.Legend();
+chart.legend.position = "bottom";
+
+// axis ranges
+
+}); // end am4core.ready()
+</script>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+/* Responsive */
+.mobile_menu_toggler .mmt_line1,
+.mobile_menu_toggler .mmt_line2,
+.mobile_menu_toggler .mmt_line3 {
+    background:#333333;
+}
+ul.mobile_menu > li a {
+    color:#333333;
+}
+ul.mobile_menu li.current-menu-ancestor > a,
+ul.mobile_menu li.current-menu-item > a,
+ul.mobile_menu li.current-menu-parent > a {
+    color:#8d97a0;
+}
+.mobile_menu_wrapper {
+    background:#ffffff;
+}

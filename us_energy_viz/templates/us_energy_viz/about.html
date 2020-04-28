@@ -1,0 +1,102 @@
+{% extends 'us_energy_viz/base.html' %}
+
+{% load static %}
+
+{% block title %}
+About
+{% endblock %}
+
+{% block home_content %}
+<div class="body_wrapper">
+    <div class="site_wrapper fadeOnLoad">
+        <!-- <div id="particles-js"></div> -->
+        <div class="main_wrapper">
+            <div class="content_wrapper">
+                <div class="container">
+                    <div class="content_block row no-sidebar">
+                        <div class="fl-container">
+                            <div class="row">
+                                <div class="posts-block">
+                                    <div class="contentarea">
+                                        <div class="page_title">
+                                            <h1>About this project</h1>
+                                        </div>
+                                        <!-- .page_title -->
+
+                                        <article class="contentarea">
+                                            <p>At a time when many people propose transforming the world’s energy
+                                                system, it is instructive to consider past energy transitions. The
+                                                history of past U.S. energy transitions can help us understand our
+                                                potential future pathways.</p>
+                                            <p>The U.S. Energy History Visualization project is conducted by members of
+                                                the University of Chicago’s Center for Robust Decision-making on Climate
+                                                and Energy Policy (RDCEP), under the direction of Assoc. Professor Liz
+                                                Moyer, Dept. of the Geophysical Sciences. The research lead on the
+                                                project is Robert Suits, U. Chicago Dept. of History. Graphics were
+                                                built by Nathan Matteson, DePaul University College of Computing and
+                                                Digital Media, and members of U. Chicago’s Research Computation Center,
+                                                including Milson Munakami, Sergio Elahi and Ramesh Nair.
+                                                See <a href="http://www.rdcep.org/" target="_blank">www.rdcep.org</a>
+                                                for further information.</p>
+                                            <p>The energy history tool consists of an interactive Sankey diagram of U.S.
+                                                per capita primary energy use from 1800&ndash;2017: a mapping of primary
+                                                energy sources to sectoral uses. Data on sectoral energy use before 1990
+                                                was compiled from historical sources including the U.S. Census and the
+                                                Census Bureau’s Historical Statistics of the United States. Data for
+                                                individual years after 1990 is provided by the <a
+                                                    href="https://flowcharts.llnl.gov/commodities/energy"
+                                                    target="_balnk">Lawrence Livermore
+                                                    National Laboratory (LLNL)</a>. The manuscript describing the
+                                                research is
+                                                currently in preparation (<span style="font-family:sans-serif;font-weight: bold;">&#8220;</span>Energy Transitions in U.S. History<span style="font-family:sans-serif;font-weight: bold;">&#8221;</span>, Suits,
+                                                Matteson, and Moyer, 2020).</p>
+                                            <p>To use the graph, play an animation with the <span style="font-family:sans-serif;font-weight: bold;">&#8220;</span>play<span style="font-family:sans-serif;font-weight: bold;">&#8221;</span> button at bottom
+                                                left, or drag the timeline slider to control the animation by hand.
+                                                Black circles along the timeline mark years of especial interest; click
+                                                these to open up additional information. To more fairly show the energy
+                                                requirements of the different sectors, the default setting for the
+                                                animation is to allocate the waste heat from energy generation to those
+                                                sectors that use electricity. Click the switch at bottom left to turn
+                                                off this feature. The agricultural sector here represents on-field
+                                                energy use and does not include embodied energy in fertilizer.</p>
+                                            <p>The Sankey uses units of per capita energy use to best show the structure
+                                                of the energy sector. Per capita energy use rose by ×3 from 1800-2017,
+                                                but note that the U.S. population also grew by ×60 over this time
+                                                period. The stacked bar chart at bottom shows the evolution of fuel
+                                                usage, i.e. the fractional contribution of each fuel to the U.S. energy
+                                                mix. The U.S. was primarily wood-powered through the late 1890s,
+                                                primarily coal-powered through the 1930s, and now is powered largely by
+                                                petroleum (oil) and natural gas.</p>
+                                            <p>The visualization tool is in beta; we welcome comments and suggestions
+                                                sent to <a
+                                                    href="mailto:rdcep-info@uchicago.edu?Subject=Question%20regarding%20US%20Sankey"
+                                                    target="_top">rdcep-info@uchicago.edu</a>.</p>
+                                        </article>                                       
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clear">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block customscript %}
+<!-- <script type="text/javascript" src="{% static 'us_energy_viz/js/particles.js' %}"></script>
+
+<link rel="stylesheet" href="{% static 'us_energy_viz/css/themes/default/default.css' %}" type="text/css"
+    media="screen" />
+<script>
+    jQuery(document).ready(function ($) {
+        particleBody_init();
+        
+    });
+</script> -->
+{% endblock %}

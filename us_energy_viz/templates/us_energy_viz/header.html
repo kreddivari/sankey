@@ -1,0 +1,46 @@
+{% load static %}
+
+<header class="container main_header">
+    <div class="mobile_header_part">        
+        <a href="{% url 'us_energy_viz:index' %}" class="menu_logo">
+            <span class="logo_title">U.S. Energy History Visualization</span>
+            <!-- <img src="{% static 'us_energy_viz/img/us-energy-viz.png' %}" alt="" width="250" class="logo_def">
+            <img src="{% static 'us_energy_viz/img/retina/us-energy-viz.png' %}" alt="" width="250" class="logo_retina"> -->
+        </a>
+        <a href="javascript:void(0)" class="mobile_menu_toggler">
+            <span class="mmt_line1"></span>
+            <span class="mmt_line2"></span>
+            <span class="mmt_line3"></span>
+        </a>
+    </div>
+    <div class="header_wrapper"> <!-- {% if request.path == "/" %}{% endif %} -->
+        <div class="header_left_part">
+            <div class="header_lp_wrapper">
+                <a href="{% url 'us_energy_viz:index' %}" class="menu_logo">
+                    <span class="logo_title">U.S. Energy History Visualization</span>
+                    <!-- <img src="{% static 'us_energy_viz/img/us-energy-viz.png' %}" alt="" width="450" class="logo_def">
+                    <img src="{% static 'us_energy_viz/img/retina/us-energy-viz.png' %}" alt="" width="450" class="logo_retina"> -->
+                </a>
+                <!--<div class="slogan"> Visualization of US Energy Consumption</div>-->
+                <!-- .slogan -->
+            </div>
+        </div>
+        <!-- .header_left_part -->
+        <div class="header_right_part">
+            <div class="header_rp_wrapper">
+                <div class="center_trigger"></div>
+                <nav class="main_nav">
+                    <div class="menu-main-menu-container">
+                        <ul class="menu">
+                            <li class="menu-item"><a href="{% url 'us_energy_viz:about_us' %}">About</a></li>
+                             <li class="menu-item"><a href="{% url 'us_energy_viz:charts' %}">Charts</a></li>
+                            <li class="menu-item"><a href="{% url 'us_energy_viz:license' %}">License</a></li>
+                            <li class="menu-item"><a href="{% url 'us_energy_viz:contact' %}">Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- .header_right_part -->
+    </div>
+</header>

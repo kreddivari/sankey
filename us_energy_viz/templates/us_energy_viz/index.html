@@ -1,0 +1,207 @@
+{% extends 'us_energy_viz/base.html' %}
+
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block home_content %}
+<div class="body_wrapper">
+    <div class="site_wrapper fadeOnLoad">
+        <div class="main_wrapper" style="padding-top:0px;">
+            <div id="container" class="container">
+                <div class="content_block row no-sidebar">
+                    <div class="contentarea single_content">
+                        <article class="contentarea">
+                            <div class="title container" style="height: 58px">
+                                <img src="{% static 'us_energy_viz/img/rdcep-logo.PNG' %}"
+                                    style="width:11%;max-height: 55px"
+                                    alt="The Center for Robust Decision-making on Climate and Energy Policy (RDCEP)"
+                                    title="The Center for Robust Decision-making on Climate and Energy Policy (RDCEP)">
+                            </div>
+                            <div id="vis" style="margin-top: 5px;">
+                                <div class="sankey" style="line-height: 0px;"></div>
+                                <div id="axisTop"></div>
+                                <!-- <div id="slider3"></div> -->
+                                <!-- <div>
+                                    <img class="stacked_image_standalone img2preload" style="width: 100%"
+                                        src="{% static 'us_energy_viz/img/range.PNG' %}" alt="">
+                                </div> -->
+
+                                <div class="range-slider" style="">
+                                    <!-- <span class="range-slider__value">1800</span> -->
+                                    <form style="margin: -5px;">
+                                        <input id="rangeSlider" class="range-slider__range" type="range" value="1800"
+                                            min="1800" max="2017" name="foo">
+                                        <output id="dynamicYear" for="foo"
+                                            onforminput="value = foo.valueAsNumber;"></output>
+                                    </form>
+
+                                    <div id="testTick"></div>                                   
+
+                                    <div class="container" style="margin-top:20px;margin-bottom: 15px;">
+                                        <div class="sidebar" style="width: 90px; float: left;">
+                                            <button id="play-button" class="playbutton"></button>
+                                            <button id="jButton" style="display:none"></button>
+                                            <button id="kButton" style="display:none"></button>
+                                        </div>
+                                        <div class="content switch_box box_1" style="float: right;">
+                                            <label id="lbl_waste_hide_show" for="waste_required"></label>
+                                            <input type="checkbox" id="waste_required" name="waste" class="switch_1"
+                                                onchange="change_function();">
+                                        </div>
+
+                                    </div>
+                                    <div class="" id="stack_chart_section" style="cursor: pointer" onclick="generateStackedChart();">
+                                        {% comment %}<img class="stacked_image_standalone img2preload"
+                                            src="{% static 'us_energy_viz/img/stack-graph.png' %}"
+                                            alt="">{% endcomment %}
+                                    </div>
+
+                                </div>
+
+
+                                <!--Start for dynamic checkbox -->
+                                <div class="container" style="margin-top:5px">
+                                    <div class="row">
+
+                                        <div class="radios">
+
+                                            <div class="radio">
+                                                <input type="radio" name="rdp2"  value="Fuel" checked class="example2">
+                                                <label for="byfuel">
+                                                    By Fuel
+                                                </label>
+                                            </div>
+                                             <div class="radio">
+                                                <input type="radio" name="rdp2"  value="Sectoral"  class="example2">
+                                                <label for="bysector">
+                                                    By Sector
+                                                </label>
+                                            </div>
+                                             <div style="width:40%">
+                                                <input type="hidden" value="Fuel" id="rdpFlag" />
+                                                <input type="hidden" value="Total" id="rdcFlag" />
+                                            </div>
+
+                                             <div class="radio">
+                                                <input type="radio" name="rd2"  value="Fractional"  class="example2">
+                                                <label for="fractional">
+                                                   Fractional
+                                                </label>
+                                            </div>
+                                             <div class="radio">
+                                                <input type="radio" name="rd2"  value="Total" checked class="example2">
+                                                <label for="total">
+                                                    Total
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <input type="radio" name="rd2"  value="PerCapita"  class="example2">
+                                                <label for="PerCapita">
+                                                    Per Capita
+                                                </label>
+                                            </div>
+                                          </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!--end for dynamic checkbox -->
+
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- .main_wrapper -->
+    </div>
+    <!-- .site_wrapper -->
+
+    <!-- <a id="back2Top" title="Back to top" href="#">&#10148;</a> -->
+</div>
+{% endblock %}
+
+{% block customscript %}
+<script type="text/javascript" src="{% static 'us_energy_viz/js/d3.v5.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'us_energy_viz/js/sankey_timeline.data.v4.js' %}"></script>
+<script type="text/javascript" src="{% static 'us_energy_viz/js/sankey_timeline.constants.v0.js' %}"></script>
+<script type="text/javascript" src="{% static 'us_energy_viz/js/sankey_timeline.funcs.v3.js' %}"></script>
+<script type="text/javascript" src="{% static 'us_energy_viz/js/sankey_timeline.animation.v1.js' %}"></script>
+<script type="text/javascript" src="{% static 'us_energy_viz/js/sankey_timeline.summary.v0.js' %}"></script>
+<script type="text/javascript" src="{% static 'us_energy_viz/js/sankey_timeline.chart.v0.js' %}"></script>
+<script type="text/javascript" src="{% static 'us_energy_viz/js/sankey_timeline.main.v2.1.js' %}"></script>
+
+<!-- <script type="text/javascript" src="{% static 'us_energy_viz/js/d3.slider.js' %}"></script> -->
+
+<script>
+
+    $(function () {
+        $('.header_wrapper').addClass('no_border');
+    });
+
+    jQuery(document).on("keypress", function (e) {
+
+        if (e.which == 13 || e.which == 32) {
+            $('#play-button').trigger('click');
+        } if (e.which == 106) {
+            $('#jButton').trigger('click');
+        } if (e.which == 105) {
+            $('#kButton').trigger('click');
+        }
+    });
+
+    jQuery(document).ready(function ($) {
+
+        $('.example2').simpleButtonRadios({});
+        $("input[name='rdp2']").on('change', function () {
+            var rdpFlag = $("input[name='rdp2']:checked").val();
+            $('#rdpFlag').val(rdpFlag);
+             var rdcFlag =  $('#rdcFlag').val();
+            if(rdcFlag!=null && rdcFlag!="" ){
+            $('div#stack_chart_section > img').remove();
+            var img = $(
+                '<img id="dynamic" class="stacked_image_standalone img2preload" style="height:50%;width:100%" >'
+                );
+            var imgName = $('#rdpFlag').val() + $('#rdcFlag').val();
+            img.attr('src', "{% static 'us_energy_viz/img/'%}" + imgName + ".PNG");
+            img.appendTo('#stack_chart_section');
+            }
+        });
+        $("input[name='rd2']").on('change', function () {
+            $('div#stack_chart_section > img').remove();
+            var rdcFlag = $("input[name='rd2']:checked").val();
+            $('#rdcFlag').val(rdcFlag);
+            var img = $(
+                '<img id="dynamic" class="stacked_image_standalone img2preload" style="height:50%;width:100%" >'
+            );
+            var imgName = $('#rdpFlag').val() + $('#rdcFlag').val();
+            img.attr('src', "{% static 'us_energy_viz/img/'%}" + imgName + ".PNG");
+            img.appendTo('#stack_chart_section');
+        });
+
+        var rdpFlag = $('#rdpFlag').val();
+        var rdcFlag = $('#rdcFlag').val();
+        $("input[value='" + rdpFlag + "']").prop('checked', true);
+        $("input[value='" + rdcFlag + "']").prop('checked', true);
+        var img = $('<img id="dynamic" class="stacked_image_standalone img2preload" style="height:50%;width:100%" >');
+        var imgName = rdpFlag + rdcFlag;
+        img.attr('src', "{% static 'us_energy_viz/img/'%}" + imgName + ".PNG");
+        img.appendTo('#stack_chart_section');
+        $("#stack_chart_section").click(function() {
+            var rdpFlag = $('#rdpFlag').val();
+            var rdcFlag = $('#rdcFlag').val();
+            var imgName = rdpFlag + rdcFlag;
+            if(imgName.indexOf("Sectoral") != -1){
+                imgName=imgName+"WithElec";
+            }
+            window.location.href="{% url 'us_energy_viz:charts' %}#"+imgName;
+        });
+    });
+</script>
+
+{% endblock %}

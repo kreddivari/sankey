@@ -1,0 +1,115 @@
+$elec: #e49942
+$solar: #fed530
+$nuclear: #ca0813
+$hydro: #0b24fb
+$wind: #901d8f
+$geo: #905a1c
+$gas: #4cabf2
+$coal: #000000
+$bio: #46be48
+$petro: #095f0b
+$greybox: #cccccc
+$greytext: #000000
+
+text, tspan
+  font-family: Fieldwork, Futura, sans-serif
+  font-size: 16px
+.tick 
+  text
+    cursor: pointer
+
+.flow
+  fill: none
+  &.elec
+    stroke: $elec
+  &.waste
+    stroke: $elec
+    opacity: 0.4
+  &.solar
+    stroke: $solar
+  &.nuclear
+    stroke: $nuclear
+  &.hydro
+    stroke: $hydro
+  &.wind
+    stroke: $wind
+  &.geo
+    stroke: $geo
+  &.gas
+    stroke: $gas
+  &.coal
+    stroke: $coal
+  &.bio
+    stroke: $bio
+  &.petro
+    stroke: $petro
+.box
+  &.sector
+    fill: $greybox
+  &.solar
+    fill: $solar
+  &.nuclear
+    fill: $nuclear
+  &.hydro
+    fill: $hydro
+  &.wind
+    fill: $wind
+  &.geo
+    fill: $geo
+  &.gas
+    fill: $gas
+  &.coal
+    fill: $coal
+  &.bio
+    fill: $bio
+  &.petro
+    fill: $petro
+.maxline
+  stroke: $greybox
+  stroke-width: 1px
+.bkgd
+  fill: #000000
+.title.container
+  border-top: 2px solid $greytext
+  border-bottom: 1px solid $greytext
+  position: relative
+  img
+    max-height: 40px
+    position: absolute
+    top: 5px
+  svg
+    position: absolute
+    font-size: 15px
+  .title
+    font-size: 1em
+    fill: black
+    .unit
+      font-size: .9em
+      font-weight: bold
+    .year
+      font-size: 2.8em
+      font-weight: bold
+      clear: left
+      letter-spacing: .05em
+      font-variant-numeric: tabular-nums
+  .citation, .affiliation
+    font-family: Fieldwork-HumThin, Futura, sans-serif
+    font-size: 1em
+    fill: $greytext
+    font-weight: bolder
+  .affiliation-bottom
+    font-family: Fieldwork-HumThin, Futura, sans-serif
+    font-size: 1em
+    fill: $greytext
+    font-weight: bolder
+.total
+  &.sector
+    font-size: 0.7em
+    font-weight: bold
+  &.waste-level
+    fill: $elec 
+    opacity: 0.4
+
+
+.hidden
+  visibility: hidden

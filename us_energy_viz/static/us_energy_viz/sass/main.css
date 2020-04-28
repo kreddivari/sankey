@@ -1,0 +1,104 @@
+text, tspan {
+  font-family: Fieldwork, Futura, sans-serif; font-size: 16px; }
+
+.tick text{
+  cursor: pointer;}
+
+.flow {
+  fill: none; }
+  .flow.elec {
+    stroke: #e49942; }
+  .flow.waste {
+    stroke: #e49942; opacity: 0.4; }
+  .flow.solar {
+    stroke: #fed530; }
+  .flow.nuclear {
+    stroke: #ca0813; }
+  .flow.hydro {
+    stroke: #0b24fb; }
+  .flow.wind {
+    stroke: #901d8f; }
+  .flow.geo {
+    stroke: #905a1c; }
+  .flow.gas {
+    stroke: #4cabf2; }
+  .flow.coal {
+    stroke: #000000; }
+  .flow.bio {
+    stroke: #46be48; }
+  .flow.petro {
+    stroke: #095f0b; }
+
+.box.sector {
+  fill: #cccccc; }
+.box.solar {
+  fill: #fed530; }
+.box.nuclear {
+  fill: #ca0813; }
+.box.hydro {
+  fill: #0b24fb; }
+.box.wind {
+  fill: #901d8f; }
+.box.geo {
+  fill: #905a1c; }
+.box.gas {
+  fill: #4cabf2; }
+.box.coal {
+  fill: #000000; }
+.box.bio {
+  fill: #46be48; }
+.box.petro {
+  fill: #095f0b; }
+
+.maxline {
+  stroke: #cccccc;
+  stroke-width: 1px; }
+
+.bkgd {
+  fill: #000000; }
+
+.title.container {
+  border-top: 2px solid #333333;
+  border-bottom: 1px solid #333333;
+  position: relative; }
+  .title.container img {
+    max-height: 55px;
+    position: absolute;
+    top: 1px; }
+  .title.container svg {
+    position: absolute;
+    font-size: 15px;}
+  .title.container .title {
+    font-size: 16px;
+    fill: black; }
+    .title.container .title .unit {
+      font-size: 0.9em;
+      font-weight: bold; }
+    .title.container .title .year {
+      font-size: 2.8em;
+      font-weight: bold;
+      clear: left;
+      letter-spacing: 0.05em;
+      font-variant-numeric: tabular-nums; }
+  .title.container .citation, .title.container .affiliation {
+    font-family: Fieldwork-HumThin, Futura, sans-serif;
+    font-size: 1em;
+    fill: #000000; 
+    font-weight: bolder; }
+  .title.container .affiliation-bottom {
+    font-family: Fieldwork-HumThin, Futura, sans-serif;
+    font-size: 1em;
+    fill: #000000; 
+    font-weight: bolder; }
+
+.total.sector {
+  font-size: 0.7em;
+  font-weight: bold; }
+.total.waste-level {
+  fill: #e49942;
+  opacity: 0.4; }
+
+.hidden {
+  visibility: hidden; }
+
+/*# sourceMappingURL=main.css.map */
