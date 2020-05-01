@@ -50,4 +50,8 @@ To see the website, go to `http://localhost:8000`.
     
  - Change the Template pages as required to customize.
     
-   
+## Documentation:
+
+[JSDoc](https://jsdoc.app/index.html) is used when possible to support intellisense and enhance developer experience.
+To generate documentation, run `jsdoc us_energy_viz/static/us_energy_viz/js/ -d us_energy_viz/docs`
+View the API documentation by opening `us_energy_viz/docs/index.html` in your browser.
