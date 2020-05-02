@@ -1,3 +1,11 @@
+/**
+ * @file Provides global functions for the application.
+ */
+/**
+ * @description Round down to two significant digits for any given input n.
+ * @param {Number} n - the number to be rounded
+ * @returns {Number} n - the rounded number
+ */
 const sigfig2 = function sigfig2(n) {
     if (n > 1 && n < 10) {
         return Number.parseFloat(n.toPrecision(1));
