@@ -413,17 +413,14 @@ ul {
 /*base*/
 
 ::selection {
-    color: #800000;
     opacity: 1;
 }
 
 ::-moz-selection {
-    color: #800000;
     opacity: 1;
 }
 
 ::-webkit-selection {
-    color: #f0f;
     opacity: 1;
 }
 
