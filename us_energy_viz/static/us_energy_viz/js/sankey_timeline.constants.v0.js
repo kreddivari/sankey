@@ -52,7 +52,15 @@ const BOXES = [
   { box: 'indus', color: BOX_GREY, name: 'Industrial' },
   { box: 'trans', color: BOX_GREY, name: 'Transportation' }
 ];
+/**
+ * @type {String[]} 
+ * @description An array of fuel names, mapped from `BOXES`.
+ */
 const FUEL_NAMES = FUELS.map(d => d.fuel);
+/**
+ * @type {String[]} 
+ * @description An array of box names, mapped from `BOXES`.
+ */
 const BOX_NAMES = BOXES.map(d => d.box);
 const FLOW_ORDER = {
   ups: {
