@@ -16,10 +16,6 @@ const LEFT_GAP = 30;
 const PATH_GAP = 20;
 const RIGHT_GAP = LEFT_GAP * 2.1;
 const BOX_WIDTH = 120;
-/**
- * @type {Object[]} 
- * @description An array of fuel objects.
- */
 
 /**
  * @type {Object[]} 
