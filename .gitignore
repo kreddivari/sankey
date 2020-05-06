@@ -26,6 +26,4 @@ __pycache__
 *.sqlite3
 /us_energy_viz/migrations/0001_initial.py
 /.vscode/settings.json
-/cases
-/cases/*
 db.sqlite3

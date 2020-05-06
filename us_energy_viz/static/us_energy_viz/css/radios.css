@@ -1,5 +1,5 @@
-		.radios{
-			width:100%;
+		.radios {
+			width: 100%;
 			display: -webkit-box;
 			display: -ms-flexbox;
 			display: flex;
@@ -13,28 +13,35 @@
 			-ms-flex-wrap: wrap;
 			flex-wrap: wrap;
 		}
-		.radio{
+
+		.radio {
 			padding: 15px;
 		}
-		label{
+
+		label {
 			font-family: Fieldwork, Futura, sans-serif;
-            font-size: 16px;
+			font-size: 16px;
 			margin-bottom: 0;
 			margin-left: .5rem;
+			vertical-align: middle;
 
 		}
-		hr{
+
+		hr {
 			width: 100%;
 		}
-		.text-muted{
+
+		.text-muted {
 			display: inline-block;
 			text-align: left;
 			font-size: .8rem;
 		}
-		input:disabled ~ label {
+
+		input:disabled~label {
 			color: #6c757d;
 		}
-		.btns{
+
+		.btns {
 			width: 100%;
 			display: -webkit-box;
 			display: -ms-flexbox;
@@ -47,48 +54,58 @@
 			justify-content: space-evenly;
 			padding-bottom: 15px;
 		}
-				.sbr-btn{
+
+		.sbr-btn {
 			height: 25px;
 			width: 25px;
 			background-color: black;
 			border: 1px solid black;
 		}
-		.sbr-btn:focus{
+
+		.sbr-btn:focus {
 			box-shadow: none;
 		}
-		.sbr-btn svg{
+
+		.sbr-btn svg {
 			height: 14px;
 			width: 14px;
 			fill: #fff;
-    		animation-name: bounceIn;
+			animation-name: bounceIn;
 			animation-duration: .75s;
 			animation-fill-mode: both;
 		}
+
 		@keyframes bounceIn {
-			0%, 20%, 40%, 60%, 80%, to {
-				animation-timing-function: cubic-bezier(.215,.61,.355,1)
+
+			0%,
+			20%,
+			40%,
+			60%,
+			80%,
+			to {
+				animation-timing-function: cubic-bezier(.215, .61, .355, 1)
 			}
 
 			0% {
 				opacity: 0;
-				transform: scale3d(.3,.3,.3)
+				transform: scale3d(.3, .3, .3)
 			}
 
 			20% {
-				transform: scale3d(1.2,1.2,1.2)
+				transform: scale3d(1.2, 1.2, 1.2)
 			}
 
 			40% {
-				transform: scale3d(.9,.9,.9)
+				transform: scale3d(.9, .9, .9)
 			}
 
 			60% {
 				opacity: 1;
-				transform: scale3d(1.03,1.03,1.03)
+				transform: scale3d(1.03, 1.03, 1.03)
 			}
 
 			80% {
-				transform: scale3d(.97,.97,.97)
+				transform: scale3d(.97, .97, .97)
 			}
 
 			to {
