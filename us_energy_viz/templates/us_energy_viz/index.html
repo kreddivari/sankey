@@ -253,6 +253,8 @@ function createChart(ref) {
             });
                 }
 
+            },'error':function(){
+                 $("#stack_chart_section").html('<h1 style="margin-left:400px;">Error Loading Data</h1>')
             }
         });
         return chartjson;
