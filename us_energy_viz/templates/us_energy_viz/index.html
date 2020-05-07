@@ -199,8 +199,9 @@ Home
        // img.appendTo('#stack_chart_section');
 function createChart(ref) {
 
-    var dataset_url = "http://sankey-dev.staging.rcc.uchicago.edu:8090/api/json/"+ref;
-   // alert(dataset_url);
+    //var dataset_url = "http://sankey-dev.staging.rcc.uchicago.edu:8090/api/json/"+ref;
+    var dataset_url = "http://127.0.0.1:8000/static/us_energy_viz/charts/"+ref+".json";
+    alert(dataset_url);
     var chartjson = (function () {
         var chartjson = null;
         $.ajax({
