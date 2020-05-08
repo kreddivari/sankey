@@ -140,12 +140,12 @@ Home
    // alert(num+":"+digits);
   var si = [
     { value: 1, symbol: "" },
-    { value: 1E3, symbol: "kW" },
-    { value: 1E6, symbol: "MW" },
-    { value: 1E9, symbol: "GW" },
-    { value: 1E12, symbol: "TW" },
-    { value: 1E15, symbol: "PW" },
-    { value: 1E18, symbol: "EW" }
+    { value: 1E3, symbol: " kW" },
+    { value: 1E6, symbol: " MW" },
+    { value: 1E9, symbol: " GW" },
+    { value: 1E12, symbol: " TW" },
+    { value: 1E15, symbol: " PW" },
+    { value: 1E18, symbol: " EW" }
   ];
   var rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
   var i;
@@ -276,7 +276,7 @@ function createChart(ref) {
                   shared: false,
                   visible: true,
                     format: "n1",
-                    template: " #= category #-#= series.name #: #= nFormatter(value,2) #"
+                    template: " #= category # - #= series.name # <br /> #= nFormatter(value,2) #"
                 }
             });
                 }
